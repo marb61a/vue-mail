@@ -18,6 +18,21 @@
       return {
         messages: messages
       };
-    }  
+    },
+    created(){
+      eventBus.$on('refreshMessages', () => {
+        let randomIndex = Math.floor(Math.random() * randomMessages.length);
+        let temp = [randomMessages[randomIndex]];
+        this.messages = temp.concat(this.messages.slice(0));
+      });
+      eventBus.$on('sentMessage', (data) => {
+        let temp = [data.message];
+        this.messages = temp.concat(this.messages.slice(0));
+      });
+    },
+    components: {
+      appSidebar: Sidebar,
+      appContent: Content
+    }
   };
 </script>
