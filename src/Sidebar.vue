@@ -11,7 +11,22 @@
             <app-compose></app-compose>
         </div>
         <ul class="inbox-nav">
-            
+            <li :class="{ active: activeView == 'app-inbox' }">
+                <a href="#" @click.prevent="navigate('app-inbox', 'Inbox')">
+                    <i class="fa fa-inbox"></i>Inbox
+                    <span class="label label-danger pull-right">
+                        {{ unreadMessages.length }}
+                    </span>
+                </a>
+            </li> 
+            <li :class="{ active: activeView == 'app-sent' }">
+                <a href="#" @click.prevent="navigate('app-sent', 'Sent')">
+                    <i class="fa fa-envelope-o"></i>Inbox
+                    <span class="label label-default pull-right">
+                        {{ sentMessages.length }}
+                    </span>
+                </a>
+            </li> 
         </ul>
     </aside>
 </template>
@@ -43,6 +58,24 @@
                     title: title
                 });
             }   
+        },
+        computed: {
+            unreadMessages(){
+                return this.messasges.filter(function(message){
+                    return (message.type == 'incoming' && !message.isRead && !message.isDeleted);
+                });
+            },
+            sentMessages(){
+                return this.messasges.filter(function(message){
+                    return (message.type == 'outgoing' &&  !message.isDeleted);
+                });
+            },
+            importantMessages(){
+                
+            },
+            trashedMessages(){
+                
+            }
         }
     };
 </script>
