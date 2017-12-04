@@ -10,6 +10,9 @@
         <div class="compose-wrapper">
             <app-compose></app-compose>
         </div>
+        <ul class="inbox-nav">
+            
+        </ul>
     </aside>
 </template>
 <script>
@@ -17,6 +20,30 @@
     import Compose from './Compose.vue';
     
     export default {
-    
-    }
+        props:{
+            messages: {
+                type: Array,
+                required: true
+            }
+        },
+        data(){
+            return {
+                activeView: 'app-inbox'
+            };
+        },
+        created(){
+            eventBus.$on('changeView', (data) => {
+                this.activeView = data.tag;
+            });
+        },
+        methods: {
+            navigate(newView, title){
+                eventBus.$emit('changeView', {
+                    tag: newView,
+                    title: title
+                });
+            }   
+        }
+    };
 </script>
+
