@@ -1,6 +1,11 @@
 <template>
     <aside class="lg-side">
-        
+        <div class="inbox-head">
+            <h3>{{ currentView.title }}</h3>
+        </div>
+        <keep-alive>
+            <component :is="currentView.tag" :data="currentView.data"></component>
+        </keep-alive>
     </aside>
 </template>
 <script>
@@ -41,6 +46,23 @@
                 
                 this.history = temp.concat(this.history.splice(0));
             });
+        },
+        computed: {
+            currentView(){
+                let current = this.history[0];
+                current.data.messages = this.messages;
+                return current;
+            },
+            previousView(){
+                return typeof this.history[1] !== 'undefined' ? this.history[1] : null;
+            }
+        },
+        components: {
+            appInbox: Inbox,
+            appSent: Sent,
+            appImportant: Important,
+            appTrash: Trash,
+            appViewMessage: ViewMessage
         }
     };
 </script>
