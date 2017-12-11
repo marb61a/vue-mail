@@ -27,6 +27,22 @@
                     </span>
                 </a>
             </li> 
+            <li :class="{ active: activeView == 'app-important' }">
+                <a href="#" @click.prevent="navigate('app-important', 'Important')">
+                    <i class="fa fa-bookmark-o"></i>Important 
+                    <span class="label label-warning pull-right">
+                        {{ importantMessages.length }}
+                    </span>
+                </a>    
+            </li>
+            <li :class="{ active: activeView == 'app-trash' }">
+                <a href="#" @click.prevent="navigate('app-trash', 'Trash')">
+                    <i class=" fa fa-trash-o"></i>Trash
+                    <span class="label label-default pull-right">
+                        {{ trashedMessages.length }}
+                    </span>
+                </a>    
+            </li>
         </ul>
     </aside>
 </template>
@@ -71,11 +87,18 @@
                 });
             },
             importantMessages(){
-                
+                return this.messages.filter(function(message){
+                    return(message.type == 'incoming' && message.isImportant === true && !message.isDeleted);
+                });    
             },
             trashedMessages(){
-                
+                return this.messages.filter(function(message){
+                    return message.isDeleted === true;    
+                });
             }
+        },
+        components: {
+            appCompose: Compose
         }
     };
 </script>
