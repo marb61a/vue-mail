@@ -51,6 +51,7 @@ module.exports = {
     historyApiFallback: true,
     noInfo: true,
     overlay: true,
+    disableHostCheck: true,
     public: "https://vue-projects-marb.c9users.io"
   },
   performance: {
