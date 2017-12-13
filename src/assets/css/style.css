@@ -194,3 +194,53 @@ ul.inbox-nav li a span.label {
     background: none repeat scroll 0 0 #f7f7f7;
     font-weight: 600;
 }
+
+ul.inbox-pagination {
+    float: right;
+}
+
+ul.inbox-pagination li {
+    float: left;
+}
+
+.mail-option {
+    display: inline-block;
+    margin-bottom: 10px;
+    width: 100;
+}
+
+.mail-option .btn-group a.btn {
+    background: none repeat scroll 0 0 #fcfcfc;
+    border: 1px solid #e7e7e7;
+    border-radius: 3px !important;
+    color: #afafaf;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.mail-option .btn-group a.btn:hover {
+    background-color: #e7e7e7;
+}
+
+.fileinput-button {
+    background: none repeat scroll 0 0 #eeeeee;
+    border: 1px solid #e6e6e6;
+}
+
+.inbox-body .modal .modal-body input, .inbox-body .modal .modal-body textarea {
+    border: 1px solid #e6e6e6;
+    box-shadow: none;
+}
+
+.btn-send, .btn-send:hover {
+    background: none repeat scroll 0 0 #00a8b3;
+    color: #fff;
+}
+
+.btn-send:hover {
+    background: none repeat scroll 0 0 #009da7;
+}
+
+
+
+

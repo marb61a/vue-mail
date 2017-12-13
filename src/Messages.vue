@@ -6,7 +6,7 @@
                 <td>
                     <a href="#" v-if="typeof message.isImportant !== 'undefined'" @click.prevent.stop="message.isImportant = !message.isImportant">
                         <i :class="['fa', 'fa-star', { important: message.isImportant }]"></i>
-                    </a> 
+                    </a>
                 </td>
                 <td>{{ message.from.name }}</td>
                 <td>{{ message.subject }}</td>

@@ -77,12 +77,12 @@
         },
         computed: {
             unreadMessages(){
-                return this.messasges.filter(function(message){
+                return this.messages.filter(function(message){
                     return (message.type == 'incoming' && !message.isRead && !message.isDeleted);
                 });
             },
             sentMessages(){
-                return this.messasges.filter(function(message){
+                return this.messages.filter(function(message){
                     return (message.type == 'outgoing' &&  !message.isDeleted);
                 });
             },
