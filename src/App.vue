@@ -1,11 +1,11 @@
-<tmeplate>
+<template>
   <div class="container">
     <div class="mail-box">
       <app-sidebar :messages="messages"></app-sidebar>
       <app-content :messages="messages"></app-content>  
     </div>
   </div>
-</tmeplate>
+</template>
 <script>
   import Sidebar from './Sidebar.vue';
   import Content from './Content.vue';
