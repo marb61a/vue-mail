@@ -3,6 +3,7 @@
         <div class="inbox-head">
             <h3>{{ currentView.title }}</h3>
         </div>
+
         <keep-alive>
             <component :is="currentView.tag" :data="currentView.data"></component>
         </keep-alive>

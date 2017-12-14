@@ -16,8 +16,8 @@
         },
         computed: {
             importantMessages(){
-                return this.data.messsages.filter(function(message){
-                    return(message.type == 'incoming' && message.isImportant === true && !message.isDeleted);
+                return this.data.messages.filter(function(message) {
+                    return (message.type == 'incoming' && message.isImportant === true && !message.isDeleted);
                 });
             }
         },

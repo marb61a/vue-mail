@@ -7,7 +7,7 @@
                 </a>
             </div>
         </div>
-        
+
         <app-messages :messages="incomingMessages"></app-messages>
     </div>
 </template>
